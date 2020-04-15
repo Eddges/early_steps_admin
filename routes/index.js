@@ -90,5 +90,13 @@ router.get('/classes', function(req, res, next) {
   res.render('classes', { title: 'Express' });
 });
 
+router.get('/assignments', function(req, res, next) {
+  res.render('assignments', { title: 'Express' });
+});
+
+router.get('/feedbacks', function(req, res, next) {
+  res.render('feedbacks', { title: 'Express' });
+});
+
 
 module.exports = router;
