@@ -149,7 +149,7 @@
                     <ul class="site-menu" data-plugin="menu">
                         <li class="site-menu-category"></li>
 
-                        <li class="site-menu-item has-sub active">
+                        <li class="site-menu-item has-sub">
                             <a href="/bootcamps">
                                 <i class="site-menu-icon wb-grid-4" style="color:#23b7e5" aria-hidden="true"></i>
                                 <span class="site-menu-title">Bootcamps</span>
@@ -158,7 +158,7 @@
 
                         </li>
 
-                        <li class="site-menu-item ">
+                        <li class="site-menu-item active">
                             <a href="/courses">
                                 <i class="site-menu-icon wb-book" style="color:#27c24c" aria-hidden="true"></i>
                                 <span class="site-menu-title">Courses</span>
@@ -313,32 +313,32 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                    <h4 class="modal-title" id="exampleFormModalLabel">Edit bootcamp details</h4>
+                    <h4 class="modal-title" id="exampleFormModalLabel">Edit course details</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
 
                         <div class="col-xl-12 form-group">
                             <div>
-                                <label class="form-control-label" for="inputUserNameOne">Bootcamp Name</label>
-                                <input type="text" class="form-control" id="bootcamp_name" name="username"
+                                <label class="form-control-label" for="inputUserNameOne">Course Name</label>
+                                <input type="text" class="form-control" id="course_name" name="username"
                                     required="required">
                             </div>
                             <div>
-                                <label class="form-control-label" for="inputUserNameOne">Contact in</label>
-                                <input type="text" class="form-control" id="contact_in" name="username"
+                                <label class="form-control-label" for="inputUserNameOne">Course details</label>
+                                <input type="text" class="form-control" id="course_details" name="username"
                                     required="required">
                             </div>
                             <div>
-                                <label class="form-control-label" for="inputUserNameOne">Bootcamp details</label>
-                                <input type="text" class="form-control" id="bootcamp_details" name="username"
+                                <label class="form-control-label" for="inputUserNameOne">Course date</label>
+                                <input type="text" class="form-control" id="course_date" name="username"
                                     required="required">
                             </div>
                         </div>
 
                         <div class="col-md-12 float-right">
                             <button class="btn btn-primary btn-outline" data-dismiss="modal" type="button"
-                                onclick="updateBootcamp()">Update</button>
+                                onclick="updateCourse()">Update</button>
                         </div>
                     </div>
                 </div>
@@ -347,45 +347,45 @@
     </div>
 
     <div class="modal fade" id="addNewBootcamp" aria-labelledby="exampleFormModalLabel" role="dialog" tabindex="-1"
-    aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-simple modal-center" style="z-index:20000;">
-        <form class="modal-content" style="z-index:20000;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title" id="exampleFormModalLabel">Create new bootcamp</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
+        aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-simple modal-center" style="z-index:20000;">
+            <form class="modal-content" style="z-index:20000;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleFormModalLabel">Create new course</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
 
-                    <div class="col-xl-12 form-group">
-                        <div>
-                            <label class="form-control-label" for="inputUserNameOne">Bootcamp Name</label>
-                            <input type="text" class="form-control" id="bootcamp_name_new" name="username"
-                                required="required">
+                        <div class="col-xl-12 form-group">
+                            <div>
+                                <label class="form-control-label" for="inputUserNameOne">Course Name</label>
+                                <input type="text" class="form-control" id="course_name_new" name="username"
+                                    required="required">
+                            </div>
+                            <div>
+                                <label class="form-control-label" for="inputUserNameOne">Course details</label>
+                                <input type="text" class="form-control" id="course_details_new" name="username"
+                                    required="required">
+                            </div>
+                            <div>
+                                <label class="form-control-label" for="inputUserNameOne">Course date</label>
+                                <input type="text" class="form-control" id="course_date_new" name="username"
+                                    required="required">
+                            </div>
                         </div>
-                        <div>
-                            <label class="form-control-label" for="inputUserNameOne">Contact in</label>
-                            <input type="text" class="form-control" id="contact_in_new" name="username"
-                                required="required">
-                        </div>
-                        <div>
-                            <label class="form-control-label" for="inputUserNameOne">Bootcamp details</label>
-                            <input type="text" class="form-control" id="bootcamp_details_new" name="username"
-                                required="required">
-                        </div>
-                    </div>
 
-                    <div class="col-md-12 float-right">
-                        <button class="btn btn-primary btn-outline" data-dismiss="modal" type="button"
-                        onclick="doBootcamp()">Create</button>
+                        <div class="col-md-12 float-right">
+                            <button class="btn btn-primary btn-outline" data-dismiss="modal" type="button"
+                                onclick="doCourse()">Create</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
     <!-- Footer -->
     <!-- <footer class="site-footer">
@@ -449,10 +449,10 @@
     <script>
         var url = '<%= process.env.URL %>';
 
-        var bootcamp_id_update = "";
+        var course_id_update = "";
 
         function setBootcamp_id(props) {
-            bootcamp_id_update = props;
+            course_id_update = props;
             // console.log(bootcamp_id_update)
         }
 
@@ -469,36 +469,37 @@
         }
 
         function globalCall() {
-            axios.get(url + `/getAllBootcamp`)
+            axios.get(url + `/getCourseByBootacampId/`+`${sessionStorage.getItem("bootcamp_id")}`)
                 .then(function (res) {
-                    let response =  res.data.a;
+            let response =  res.data;
             // let response = [{
-            //     "bootcamp_id": 2,
-            //     "bootcamp_name": "Onilne Bootcamp 2",
-            //     "contact_in": "week2",
-            //     "details_bootcamp": "11th April"
+            //     "bootcamp_id": 1,
+            //     "course_date": "2020-04-04T00:00",
+            //     "course_details": "DSA",
+            //     "course_id": 1,
+            //     "course_name": "Virgin Algorithms"
             // }]
-            // console.log(response)
+            console.log(response)
             response.map(data => {
                 $("#card_id").append(`<div class="col-xxl-3 col-xl-4" style="height: 330px;">
                     <div class="card card-shadow">
                         <div class="card-block text-center bg-white p-40">
 
-                            <p id="coursename1" class="font-size-20 blue-grey-700" style="text-transform:capitalize">${data.bootcamp_name}</p>
+                            <p id="coursename1" class="font-size-20 blue-grey-700" style="text-transform:capitalize">${data.course_name}</p>
 
-                            <p class="mb-35" style="font-weight:bold">${data.contact_in}</p>
+                            <p class="mb-35" style="font-weight:bold">${data.course_details}</p>
 
-                            <p class="mb-35" style="font-weight:bold">${data.details_bootcamp}</p>
+                            <p class="mb-35" style="font-weight:bold">${data.course_date}</p>
 
-                            <button type="button" class="btn px-20 btn-success" onclick="enterCourses(${data.bootcamp_id});" style="margin-top:10px;">Select Bootcamp</button>
+                            <button type="button" class="btn px-20 btn-success" onclick="enterCourses(${data.course_id});" style="margin-top:10px;">Select Course</button>
 
-                            <span style="display:flex;justify-content:flex-end"><i title="edit" onclick="setBootcamp_id(${data.bootcamp_id});" data-target="#exampleFormModal" data-toggle="modal" style="cursor:pointer" class="icon wb-edit" aria-hidden="true"></i></span>
+                            <span style="display:flex;justify-content:flex-end"><i title="edit" onclick="setBootcamp_id(${data.course_id});" data-target="#exampleFormModal" data-toggle="modal" style="cursor:pointer" class="icon wb-edit" aria-hidden="true"></i></span>
 
                             </div>
                     </div>
                 </div>`)
             })
-            
+
             $("#card_id").append(`<div style="cursor:pointer;" data-target="#addNewBootcamp" data-toggle="modal" class="col-xxl-3 col-xl-4" style="height: 200px;">
                     <div class="card card-shadow">
                         <div class="card-block text-center bg-white p-40">
@@ -515,52 +516,54 @@
 
 
 
-        function updateBootcamp() {
-            // console.log(bootcamp_id_update);
-            let contact_in = document.getElementById("contact_in").value;
-            let details_bootcamp = document.getElementById("bootcamp_details").value;
-            let bootcamp_name = document.getElementById("bootcamp_name").value;
+        function updateCourse() {
 
-            console.log(bootcamp_id_update,contact_in,details_bootcamp,bootcamp_name)
-            axios.put(url + `/updateBootcamp/`+`${bootcamp_id_update}`, {
-                bootcamp_name: document.getElementById("bootcamp_name").value,
-                contact_in: document.getElementById("contact_in").value,
-                details_bootcamp: document.getElementById("bootcamp_details").value,
+            let course_details = document.getElementById("course_details").value;
+            let course_date = document.getElementById("course_date").value;
+            let course_name = document.getElementById("course_name").value;
+            
+            console.log(course_id_update,course_name,course_date,course_details,sessionStorage.getItem("bootcamp_id"))
+            axios.put(url + '/updateCourse/'+`${course_id_update}`, {
+                course_name: course_name,
+                course_details: course_details,
+                course_date: course_date,
+                bootcamp_id: sessionStorage.getItem("bootcamp_id")
             })
-                .then(function (response) {
-                    alert("Post Success");
-                    document.getElementById("exampleFormContainer").reset();
 
+                .then(function (response) {
+                    alert("Put Success")
+                    // document.getElementById("exampleFormContainer").reset();
                 })
                 .catch(function (error) {
                     alert(error);
                 });
         }
 
-        function doBootcamp() {
-            let contact_in = document.getElementById("contact_in_new").value;
-            let details_bootcamp = document.getElementById("bootcamp_details_new").value;
-            let bootcamp_name = document.getElementById("bootcamp_name_new").value;
-           
-            // console.log(contact_in,details_bootcamp,bootcamp_name)
-            axios.post(url + '/doBootcamp', {
-            
-              bootcamp_name: bootcamp_name,
-              contact_in: contact_in,
-              details_bootcamp: details_bootcamp,
-              })
-              .then(function (response) {
-                alert("Post Success")
-                // document.getElementById("addNewBootcamp").reset();
-              })
-              .catch(function (error) {
-                alert(error);
-              });
-          }
+        function doCourse() {
+
+            let course_details = document.getElementById("course_details_new").value;
+            let course_date = document.getElementById("course_date_new").value;
+            let course_name = document.getElementById("course_name_new").value;
+
+            // console.log(course_id_update,course_name,course_date,course_details,sessionStorage.getItem("bootcamp_id"))
+            axios.post(url + '/doCourse', {
+                course_name: course_name,
+                course_details: course_details,
+                course_date: course_date,
+                bootcamp_id: sessionStorage.getItem("bootcamp_id")
+            })
+                .then(function (response) {
+                    alert("Post Success")
+                    // document.getElementById("addNewBootcamp").reset();
+                })
+                .catch(function (error) {
+                    alert(error);
+                });
+        }
 
         function enterCourses(props) {
-            sessionStorage.setItem("bootcamp_id", props)
-            window.location.href = "/courses"
+            sessionStorage.setItem("course_id", props)
+            window.location.href = "/line562"
         }
 
         if (sessionStorage.getItem("loggedCA") === md5("true")) {
