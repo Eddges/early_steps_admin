@@ -45,6 +45,7 @@ app.use('/admin_progressUpdate', indexRouter);
 app.use('/admin_findUser', indexRouter);
 app.use('/view_users', indexRouter);
 app.use('/bootcamp', indexRouter);
+app.use('/classes', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

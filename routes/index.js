@@ -86,4 +86,9 @@ router.get('/courses', function(req, res, next) {
   res.render('courses', { title: 'Express' });
 });
 
+router.get('/classes', function(req, res, next) {
+  res.render('classes', { title: 'Express' });
+});
+
+
 module.exports = router;
