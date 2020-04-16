@@ -474,7 +474,7 @@
           var url= '<%= process.env.URL %>';
 
             if (sessionStorage.getItem("loggedCA") !== md5("true")) {
-              window.location.href = "./login";
+              window.location.href = "./admin_login";
             }
             function setbadge(){
               document.getElementById("progress_details").value = document.getElementById("total_time").value

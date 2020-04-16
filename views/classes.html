@@ -491,15 +491,35 @@
 
                 var getData=[];
 
-        function setSchedule_id(schedule_id, assignment) {
+        function setSchedule_id(schedule_id) {
             schedule_id_update = schedule_id;
-            assignment_update = assignment;
-            console.log(schedule_id_update, assignment_update)
+            // console.log(schedule_id_update, assignment_update)
+
+            axios.get(url + `/getScheduleByCourseId/`+`${sessionStorage.getItem("course_id")}`)
+                .then((res) => {
+                    res.data.a.map(res1=>{
+                        if(res1.schedule_id==schedule_id_update)
+                        {
+                            console.log(res1.schedule_id)
+
+
+                    document.getElementById("schedule_start").value = res1.schedule_start
+                    document.getElementById("schedule_end").value = res1.schedule_end
+                    document.getElementById("course_name").value = res1.schedule_details.split("~")[0]
+                    document.getElementById("class_details").value = res1.schedule_details.split("~")[1]
+                    document.getElementById("schedule_type").value = res1.schedule_type
+                    document.getElementById("class_link").value = res1.schedule_details.split("~")[2]
+                    document.getElementById("assign_link").value = res1.schedule_details.split("~")[3]
+                    assignment_data=res1.assignment;
+                        }
+                    })
+                })
+                .catch(err=>console.log(err))
 
             if(getData)
             {
-                console.log("hey")
-            }
+                console.log(getData)
+            
         //     getData.map(res=>{
         //         if(res.schedule_id==schedule_id_update)
         //         {
@@ -514,6 +534,7 @@
         //         }
         // }
     }
+    }
 
         function globalCall() {
             let course_id = sessionStorage.getItem("course_id");
@@ -523,7 +544,7 @@
                     res.data.a.map((res2, i) => {
                         if (res2.course_id === course_id) {
                             // console.log(res2.schedule_id,res2.schedule_details)
-                            if(res2.schedule_id===1)
+                            if(res2.schedule_id==1)
                             {
                                 console.log(res2)
                             }
@@ -584,7 +605,7 @@
                             
                            </a>
 
-                              <a  onclick="setSchedule_id(${[res2.schedule_id, res2.assignment]})"> 
+                              <a  onclick="setSchedule_id(${res2.schedule_id})"> 
                         <input type="button" value="EDIT CLASS" data-target="#editSchedule" data-toggle="modal" class="btn btn-sm btn-block btn-primary  "  style="cursor:pointer;margin-right:5px;width:fit-content;" />
                             
                            </a>
@@ -612,7 +633,7 @@
             let class_link = document.getElementById("class_link").value;
             let assign_link = document.getElementById("assign_link").value;
 
-            let assignment_data = assignment_update == undefined ? "" : assignment_update;
+            // let assignment_data = assignment_update == undefined ? "" : assignment_update;
             console.log(assignment_data)
             axios.put(url + `/updateSchedule/` + `${schedule_id_update}`, {
                 assignment: assignment_data,
