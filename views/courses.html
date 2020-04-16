@@ -331,8 +331,8 @@
                             </div>
                             <div>
                                 <label class="form-control-label" for="inputUserNameOne">Course date</label>
-                                <input type="text" class="form-control" id="course_date" name="username"
-                                    required="required">
+                                <input type="datetime-local" class="form-control" id="course_date" name="username"
+                                    required="required">                                    
                             </div>
                         </div>
 
@@ -372,8 +372,8 @@
                             </div>
                             <div>
                                 <label class="form-control-label" for="inputUserNameOne">Course date</label>
-                                <input type="text" class="form-control" id="course_date_new" name="username"
-                                    required="required">
+                                 <input type="datetime-local" class="form-control" id="course_date_new" name="username"
+                                    required="required">                                    
                             </div>
                         </div>
 
@@ -451,8 +451,18 @@
 
         var course_id_update = "";
 
-        function setBootcamp_id(props) {
+                var getData;
+
+        function setCourse_id(props) {    
             course_id_update = props;
+            getData.map(res=>{
+                if(res.course_id==course_id_update)
+                {
+                    document.getElementById("course_name").value =res.course_name;
+                    document.getElementById("course_details").value = res.course_details;
+                    document.getElementById("course_date").value = res.course_date;
+                }
+            })
             // console.log(bootcamp_id_update)
         }
 
@@ -472,6 +482,7 @@
             axios.get(url + `/getCourseByBootacampId/`+`${sessionStorage.getItem("bootcamp_id")}`)
                 .then(function (res) {
             let response =  res.data;
+            getData= response;
             // let response = [{
             //     "bootcamp_id": 1,
             //     "course_date": "2020-04-04T00:00",
@@ -493,7 +504,7 @@
 
                             <button type="button" class="btn px-20 btn-success" onclick="enterCourses(${data.course_id});" style="margin-top:10px;">Select Course</button>
 
-                            <span style="display:flex;justify-content:flex-end"><i title="edit" onclick="setBootcamp_id(${data.course_id});" data-target="#exampleFormModal" data-toggle="modal" style="cursor:pointer" class="icon wb-edit" aria-hidden="true"></i></span>
+                            <span style="display:flex;justify-content:flex-end"><i title="edit" onclick="setCourse_id(${data.course_id});" data-target="#exampleFormModal" data-toggle="modal" style="cursor:pointer" class="icon wb-edit" aria-hidden="true"></i></span>
 
                             </div>
                     </div>

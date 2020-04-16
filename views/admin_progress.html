@@ -142,51 +142,75 @@
           <ul class="site-menu" data-plugin="menu">
             <li class="site-menu-category">Admin</li>
             <li class="site-menu-item has-sub">
-              <a href="/classes">
-                <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
-                <span class="site-menu-title">Today's Classes</span>
-                <span class="site-menu-arrow"></span>
-              </a>
+                <a href="/classes">
+                    <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
+                    <span class="site-menu-title">Today's Classes</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
             </li>
 
             <li class="site-menu-item has-sub">
-              <a href="/assignments">
-                <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
-                <span class="site-menu-title">Assignments</span>
-                <span class="site-menu-arrow"></span>
-              </a>
+                <a href="/assignments">
+                    <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
+                    <span class="site-menu-title">Assignments</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
             </li>
 
             <li class="site-menu-item has-sub">
-              <a href="/admin_courseUpdate">
-                <i class="site-menu-icon wb-upload" aria-hidden="true"></i>
-                <span class="site-menu-title">Course Update</span>
-                <span class="site-menu-arrow"></span>
-              </a>
+                <a href="/admin_courseUpdate">
+                    <i class="site-menu-icon wb-upload" aria-hidden="true"></i>
+                    <span class="site-menu-title">Course Update</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
             </li>
 
             <li class="site-menu-item has-sub">
-              <a href="/feedbacks">
-                <i class="site-menu-icon wb-chat" aria-hidden="true"></i>
-                <span class="site-menu-title">Feedbacks</span>
-                <span class="site-menu-arrow"></span>
-              </a>
+                <a href="/feedbacks">
+                    <i class="site-menu-icon wb-chat" aria-hidden="true"></i>
+                    <span class="site-menu-title">Feedbacks</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
+            </li>
+
+            <li class="site-menu-item has-sub">
+                <a href="/view_feedback">
+                    <i class="site-menu-icon wb-order" aria-hidden="true"></i>
+                    <span class="site-menu-title">View Feedbacks</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
             </li>
 
             <li class="site-menu-item has-sub active">
-              <a href="/admin_progress">
-                <i class="site-menu-icon wb-graph-up    " aria-hidden="true"></i>
-                <span class="site-menu-title">Progress</span>
-                <span class="site-menu-arrow"></span>
-              </a>
+                <a href="/admin_progress">
+                    <i class="site-menu-icon wb-graph-up    " aria-hidden="true"></i>
+                    <span class="site-menu-title">Progress</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
             </li>
 
             <li class="site-menu-item has-sub">
-              <a href="/admin_findUser">
-                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
-                <span class="site-menu-title">Find User</span>
-                <span class="site-menu-arrow"></span>
-              </a>
+                <a href="/view_progress">
+                    <i class="site-menu-icon wb-graph-up    " aria-hidden="true"></i>
+                    <span class="site-menu-title">View Progress</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
+            </li>                        
+
+            <li class="site-menu-item has-sub">
+                <a href="/admin_findUser">
+                    <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                    <span class="site-menu-title">Find User</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
+            </li>
+
+            <li class="site-menu-item has-sub">
+                <a href="/view_users">
+                    <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                    <span class="site-menu-title">View Users</span>
+                    <span class="site-menu-arrow"></span>
+                </a>
             </li>
           </ul>
         </div>
@@ -297,6 +321,11 @@
                 <div class="form-group form-material">
                   <label class="form-control-label" for="inputUserNameOne">User Id</label>
                   <input type="number" class="form-control" id="user_id" name="username" required="required">
+                  <a">
+                    <input type="button" value="Fetch" onclick="getProgress()"
+                        class="btn btn-sm btn-block btn-primary  "
+                        style="cursor:pointer;margin-right:5px;width:fit-content;" />
+                    </a>
                 </div>
                 <div class="form-group form-material">
                   <label class="form-control-label" for="inputUserNameOne">Classes Attended</label>
@@ -486,12 +515,25 @@
         }).catch(err => {
           alert(err);
         })
-
-
-
-
     }
 
+    function getProgress() {
+      axios.get(url + `/getProgress/` + `${document.getElementById("user_id").value}`)
+        .then(function (res) {
+          console.log(res.data.a)
+          if (res.data.a.length!=0) {
+              document.getElementById("classes_completed").value= res.data.a[0].classes_completed
+              document.getElementById("problems_solved").value= res.data.a[0].problems_completed
+              document.getElementById("contests_completed").value= res.data.a[0].quiz_completed
+              document.getElementById("total_time").value= res.data.a[0].progress_details
+              document.getElementById("progress_details").value= res.data.a[0].progress_details
+            }
+        })
+        .catch(function (error) {
+          alert(error);
+        });
+    }
+    
     function logout() {
       sessionStorage.clear();
       window.location.href();

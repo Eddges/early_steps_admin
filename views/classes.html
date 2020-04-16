@@ -149,7 +149,7 @@
                                 <span class="site-menu-title">Today's Classes</span>
                                 <span class="site-menu-arrow"></span>
                             </a>
-                        </li>      
+                        </li>
 
                         <li class="site-menu-item has-sub">
                             <a href="/assignments">
@@ -157,7 +157,7 @@
                                 <span class="site-menu-title">Assignments</span>
                                 <span class="site-menu-arrow"></span>
                             </a>
-                        </li>   
+                        </li>
 
                         <li class="site-menu-item has-sub">
                             <a href="/admin_courseUpdate">
@@ -173,7 +173,15 @@
                                 <span class="site-menu-title">Feedbacks</span>
                                 <span class="site-menu-arrow"></span>
                             </a>
-                        </li>  
+                        </li>
+
+                        <li class="site-menu-item has-sub">
+                            <a href="/view_feedback">
+                                <i class="site-menu-icon wb-order" aria-hidden="true"></i>
+                                <span class="site-menu-title">View Feedbacks</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                        </li>
 
                         <li class="site-menu-item has-sub">
                             <a href="/admin_progress">
@@ -181,17 +189,31 @@
                                 <span class="site-menu-title">Progress</span>
                                 <span class="site-menu-arrow"></span>
                             </a>
-                        </li>  
-                        
+                        </li>
+
+                        <li class="site-menu-item has-sub">
+                            <a href="/view_progress">
+                                <i class="site-menu-icon wb-graph-up    " aria-hidden="true"></i>
+                                <span class="site-menu-title">View Progress</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                        </li>                        
+
                         <li class="site-menu-item has-sub">
                             <a href="/admin_findUser">
                                 <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                                 <span class="site-menu-title">Find User</span>
                                 <span class="site-menu-arrow"></span>
                             </a>
-                        </li>                          
-                    </ul>
-                    </li>
+                        </li>
+
+                        <li class="site-menu-item has-sub">
+                            <a href="/view_users">
+                                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                                <span class="site-menu-title">View Users</span>
+                                <span class="site-menu-arrow"></span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -467,17 +489,39 @@
         var schedule_id_update = "";
         var assignment_update = "";
 
+                var getData;
+
         function setSchedule_id(schedule_id, assignment) {
             schedule_id_update = schedule_id;
             assignment_update = assignment;
             console.log(schedule_id_update, assignment_update)
-        }
+
+            if(getData)
+            {
+                console.log("hey")
+            }
+        //     getData.map(res=>{
+        //         if(res.schedule_id==schedule_id_update)
+        //         {
+
+        //             document.getElementById("schedule_start").value = res.class_details
+        //             document.getElementById("schedule_end").value = res.class_details
+        //             document.getElementById("course_name").value = res.class_details
+        //             document.getElementById("class_details").value = res.class_details
+        //             document.getElementById("schedule_type").value = res.class_details
+        //             document.getElementById("class_link").value = res.class_details
+        //             document.getElementById("assign_link").value = res.class_details
+        //         }
+        // }
+    }
 
         function globalCall() {
             let course_id = sessionStorage.getItem("course_id");
             axios.get(url + `/getAllSchedule`)
                 .then((res) => {
                     //   console.log(res1)
+                    getData=res.data.a;
+                    console.log(getData)
                     res.data.a.map((res2, i) => {
                         if (res2.course_id === course_id) {
                             // console.log(res2)
@@ -488,7 +532,7 @@
                             let x = "";
                             let class_var = "";
 
-                            if (isToday(start)) {
+                            // if (isToday(start)) {
                                 if (start > new Date()) {
                                     x = "Upcoming";
                                     class_var = "badge-primary";
@@ -512,7 +556,7 @@
                       
                        <small id="badge${i}" class="badge ${class_var}  " style="margin-right:5px">${x}</small>
                         <small class="badge badge-outline badge-default  ">Date :
-                            <span>${ new Date(res2.schedule_start)}</span>
+                            <span>'${new Date(res2.schedule_start).toString().slice(0, 15)} , ${new Date(res2.schedule_start).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}'</span>
                                 
                         </small>
                         
@@ -545,7 +589,7 @@
                       </li>`);
                                 }
 
-                            }
+                            // }
 
 
                         }
@@ -627,12 +671,12 @@
 
         }
 
-        const isToday = (someDate) => {
-            const today = new Date()
-            return someDate.getDate() == today.getDate() &&
-                someDate.getMonth() == today.getMonth() &&
-                someDate.getFullYear() == today.getFullYear()
-        }
+        // const isToday = (someDate) => {
+        //     const today = new Date()
+        //     return someDate.getDate() == today.getDate() &&
+        //         someDate.getMonth() == today.getMonth() &&
+        //         someDate.getFullYear() == today.getFullYear()
+        // }
 
         if (sessionStorage.getItem("loggedCA") === md5("true")) {
             globalCall();

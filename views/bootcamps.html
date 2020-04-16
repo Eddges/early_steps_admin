@@ -158,14 +158,14 @@
 
                         </li>
 
-                        <li class="site-menu-item ">
+                        <!-- <li class="site-menu-item ">
                             <a href="/courses">
                                 <i class="site-menu-icon wb-book" style="color:#27c24c" aria-hidden="true"></i>
                                 <span class="site-menu-title">Courses</span>
                                 <span class="site-menu-arrow"></span>
                             </a>
 
-                        </li>
+                        </li> -->
                     </ul>
                     </li>
                     </ul>
@@ -450,9 +450,18 @@
         var url = '<%= process.env.URL %>';
 
         var bootcamp_id_update = "";
+        var getData;
 
-        function setBootcamp_id(props) {
+        function setBootcamp_id(props) {    
             bootcamp_id_update = props;
+            getData.map(res=>{
+                if(res.bootcamp_id==bootcamp_id_update)
+                {
+                    document.getElementById("bootcamp_name").value =res.bootcamp_name;
+                    document.getElementById("contact_in").value = res.contact_in;
+                    document.getElementById("bootcamp_details").value = res.details_bootcamp;
+                }
+            })
             // console.log(bootcamp_id_update)
         }
 
@@ -472,6 +481,8 @@
             axios.get(url + `/getAllBootcamp`)
                 .then(function (res) {
                     let response =  res.data.a;
+                    getData= response;
+                    console.log(getData)
             // let response = [{
             //     "bootcamp_id": 2,
             //     "bootcamp_name": "Onilne Bootcamp 2",

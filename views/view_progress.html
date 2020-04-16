@@ -75,7 +75,7 @@
                 <i class="icon wb-more-horizontal" aria-hidden="true"></i>
             </button>
             <div class="navbar-brand navbar-brand-center site-gridmenu-toggle active" aria-expanded="true">
-                <a href="./bootcamps" style="color:black"><img class="navbar-brand-logo"
+                <a href="./home" style="color:black"><img class="navbar-brand-logo"
                         src="../../assets/images/logo-ca.png" alt="...">
                     <span class="navbar-brand-text hidden-xs-down"> CodeAsylums</span></a>
             </div>
@@ -94,6 +94,9 @@
                                 <span class="hamburger-bar"></span>
                             </i>
                         </a>
+                    </li>
+                    <li class="nav-item hidden-float">
+
                     </li>
 
                 </ul>
@@ -122,20 +125,7 @@
             </div>
             <!-- End Navbar Collapse -->
 
-            <!-- Site Navbar Seach -->
-            <div class="collapse navbar-search-overlap" id="site-navbar-search">
-                <form role="search">
-                    <div class="form-group">
-                        <div class="input-search">
-                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
-                            <input type="text" class="form-control" name="site-search" placeholder="Search...">
-                            <button type="button" class="input-search-close icon wb-close"
-                                data-target="#site-navbar-search" data-toggle="collapse" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- End Site Navbar Seach -->
+
         </div>
     </nav>
     <div class="site-menubar">
@@ -153,7 +143,7 @@
                             </a>
                         </li>
 
-                        <li class="site-menu-item has-sub active">
+                        <li class="site-menu-item has-sub">
                             <a href="/assignments">
                                 <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
                                 <span class="site-menu-title">Assignments</span>
@@ -193,7 +183,7 @@
                             </a>
                         </li>
 
-                        <li class="site-menu-item has-sub">
+                        <li class="site-menu-item has-sub active">
                             <a href="/view_progress">
                                 <i class="site-menu-icon wb-graph-up    " aria-hidden="true"></i>
                                 <span class="site-menu-title">View Progress</span>
@@ -215,7 +205,7 @@
                                 <span class="site-menu-title">View Users</span>
                                 <span class="site-menu-arrow"></span>
                             </a>
-                        </li>  
+                        </li>
                     </ul>
 
 
@@ -226,6 +216,10 @@
 
 
 
+        </div>
+        <div class="site-menubar-footer">
+            <button type="button" class="btn btn-info" data-target="#exampleFormModal" data-toggle="modal"
+                style="width: inherit;"><i class="icon wb-chat" aria-hidden="true"></i> Submit Feedback</button>
         </div>
 
     </div>
@@ -328,7 +322,7 @@
                     <!-- Panel Filtering rows -->
                     <div class="panel">
                         <header class="panel-heading">
-                            <h3 class="panel-title">Assignment</h3>
+                            <h3 class="panel-title">View Progress</h3>
                         </header>
                         <div class="panel-body">
                             <!-- Site Navbar Seach -->
@@ -347,10 +341,12 @@
                                 </form>
                             </div>
                             <!-- End Site Navbar Seach -->
+
                             <table
                                 class="table table-bordered table-hover toggle-circle footable footable-9 footable-filtering footable-filtering-right footable-paging footable-paging-center breakpoint-lg"
                                 id="exampleFootableFiltering" data-paging="true" data-filtering="true"
                                 data-sorting="true">
+
                                 <thead>
                                     <div class="form-group"><label class="sr-only">Course Id</label>
                                         <!-- <select onclick="changeData()" id="feedback_type" class="form-control">
@@ -367,25 +363,46 @@
                     <option value="11">Full Stack - 26th April 2020</option>
                     <option value="12">Data Analytics - 26th April 2020</option>
                     </select> -->
-
+                                        <!-- <form class="form-inline">
+                 
+                        <ul class="dropdown-menu dropdown-menu-right">
+                          <li><a class="checkbox"><label><input type="checkbox" checked="checked">ID</label></a></li>
+                          <li><a class="checkbox"><label><input type="checkbox" checked="checked">First Name</label></a>
+                          </li>
+                          <li><a class="checkbox"><label><input type="checkbox" checked="checked">Last Name</label></a>
+                          </li>
+                          <li><a class="checkbox"><label><input type="checkbox" checked="checked">Job Title</label></a>
+                          </li>
+                          <li><a class="checkbox"><label><input type="checkbox" checked="checked">Started On</label></a>
+                          </li>
+                          <li><a class="checkbox"><label><input type="checkbox" checked="checked">Date of
+                                Birth</label></a></li>
+                          <li><a class="checkbox"><label><input type="checkbox" checked="checked">Status</label></a>
+                          </li>
+                        </ul>
+        </form> -->
                                         <tr class="footable-header">
                                             <th data-name="id" data-type="number" data-breakpoints="xs"
                                                 class="footable-sortable footable-first-visible"
                                                 style="display: table-cell;">S.No</th>
                                             <th data-name="firstName" class="footable-sortable"
-                                                style="display: table-cell;">Class Name<span
-                                                    class="fooicon fooicon-sort"></span></th>
-                                            <!-- <th data-name="lastName" class="footable-sortable" style="display: table-cell;">Email</th> -->
-                                            <!-- <th data-name="jobTitle" data-breakpoints="xs sm" class="footable-sortable" style="display: table-cell;">
-            Course</th> -->
+                                                style="display: table-cell;" id="namesearch">User Id</th>
+                                            <th data-name="lastName" class="footable-sortable"
+                                                style="display: table-cell;">Classes completed</th>
+                                            <th data-name="jobTitle" data-breakpoints="xs sm" class="footable-sortable"
+                                                style="display: table-cell;">
+                                                Problems Completed</th>
                                             <th data-name="status" class="footable-sortable footable-last-visible"
                                                 style="display: table-cell;">
-                                                Submit Assignment</th>
+                                                Quiz Completed</th>
+                                            <th data-name="status" class="footable-sortable footable-last-visible"
+                                                style="display: table-cell;">
+                                                Progress Details</th>
+
                                         </tr>
                                 </thead>
                                 <tbody id="table_data">
-                                    <tr>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -448,24 +465,20 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                    <h4 class="modal-title" id="MentorFormModalLabel">Assign an assignment</h4>
+                    <h4 class="modal-title" id="MentorFormModalLabel">Send us some feedback!</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="col-md-12">
-                        <button type="button" class="btn btn-secondary btn-outline" onclick="add_input()">Add</button>
-
-                    </div>
                     <div class="row">
 
-                        <div class="col-xl-12 form-group" id="addfield">
-                            <!-- <textarea class="form-control" rows="5" placeholder="Describe your issue or idea.." id="mentorFeedback_text"></textarea>
-                          <br/> -->
+                        <div class="col-xl-12 form-group">
+                            <textarea class="form-control" rows="5" placeholder="Describe your issue or idea.."
+                                id="mentorFeedback_text"></textarea>
                             <br />
-                            <label for="mentorvalue">Assignment link</label>
-                            <input class="form-control" placeholder="mentor's name" id="assgnlink0"
-                                onchange="linksubmit(0)">
+                            <label for="mentorvalue">Mentor name</label>
+                            <input class="form-control" placeholder="mentor's name" id="mentorvalue">
                             <br />
-
+                            <label for="classvalue">Class name</label>
+                            <input class="form-control" placeholder="class name" id="classvalue">
                         </div>
 
                         <div class="col-md-12 float-right">
@@ -478,11 +491,16 @@
         </div>
     </div>
 
+
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="site-footer-legal">© CodeAsylums</div>
-    </footer>
-    
+    <!-- <footer class="site-footer">
+      <div class="site-footer-legal">© 2018 <a
+          href="http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202">Remark</a></div>
+      <div class="site-footer-right">
+        Crafted with <i class="red-600 wb wb-heart"></i> by <a
+          href="https://themeforest.net/user/creation-studio">Creation Studio</a>
+      </div>
+    </footer> -->
     <!-- Core  -->
     <script src="../../global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
     <script src="../../global/vendor/jquery/jquery.js"></script>
@@ -539,8 +557,6 @@
 
         var url = '<%= process.env.URL %>';
         let btnindex = "";
-        let dataarray = [];
-        let linkarray = [];
         function hideme() {
             document.getElementById('alert-message-div').style.display = "none";
         }
@@ -551,6 +567,17 @@
 
         function hidemepro() {
             document.getElementById('processing-div').style.display = "none";
+        }
+
+        //     function changeData(){
+        // $("#table_data").empty();
+        // getAllProfile();
+        // }
+
+
+        function studentfeedback(index) {
+            btnindex = index;
+            console.log(typeof (index), index);
         }
 
         function searchAll() {
@@ -571,46 +598,25 @@
                 }
             }
         }
-
-        function studentfeedback(index) {
-            btnindex = index;
-        }
-        let addr = 0;
-        function add_input() {
-            addr = addr + 1;
-            console.log("enter", addr);
-            $("#addfield").append(`<label for="assgnlink${addr}">Assignment Link</label>
-                          <input class="form-control" placeholder = "enter link" id="assgnlink${addr}" onchange = "linksubmit('${addr}')"> <br/>`)
-        }
-
-        function linksubmit(val) {
-            linkarray = linkarray.concat(document.getElementById(`assgnlink${val}`).value);
-            console.log(linkarray, dataarray);
-
-        }
         function mentorFeedback() {
-            console.log("enter")
-            let assignment_value = linkarray.join("~");
-            let course_id = "1";
-            let schedule_details = dataarray[2];
-            let schedule_end = dataarray[3];
-            let schedule_id = 1;
-            let schedule_start = dataarray[5];
-            let schedule_type = dataarray[6];
-            console.log(dataarray[2], schedule_id)
-            axios.put(url + `/updateSchedule/` + `${schedule_id}`, {
-                assignment: assignment_value,
-                course_id: course_id,
-                schedule_details: schedule_details,
-                schedule_end: schedule_end,
-                schedule_start: schedule_start,
-                schedule_type: schedule_type
+            let user_idValue = sessionStorage.getItem("user_id");
+            let mentorFeedback_textValue = document.getElementById("mentorFeedback_text").value;
+            let mentorName = document.getElementById("mentorvalue").value;
+            let classesName = document.getElementById("classvalue").value;
+            let studentFeedback_type = "student"
+            document.getElementById('processing-div').style.display = "block";
+            document.getElementById('message-processing').innerHTML = "Processing...";
+            console.log(btnindex);
+            axios.post(`${url}` + `/doFeedback`, {
+                user_id: user_idValue,
+                feedback_details: mentorFeedback_textValue + "~" + mentorName + "~" + classesName,
+                feedback_type: studentFeedback_type
             })
                 .then(function (response) {
                     window.scrollTo(0, 0);
                     document.getElementById('processing-div').style.display = "none";
                     document.getElementById('info-message-div').style.display = "block";
-                    document.getElementById('message-div-info').innerHTML = "Assignment submitted successfully!";
+                    document.getElementById('message-div-info').innerHTML = "Feedback submitted successfully!";
                     document.getElementById(`feedbackbtn` + `${btnindex}`).innerText = "Submitted";
                     document.getElementById(`feedbackbtn` + `${btnindex}`).classList.remove("btn-warning");
                     document.getElementById(`feedbackbtn` + `${btnindex}`).classList.add("btn-success");
@@ -625,14 +631,13 @@
                     document.getElementById('message-div').innerHTML = "Something went wrong, Please try again!";
                     console.log(error);
                 });
-
         }
 
         if (sessionStorage.getItem("loggedCA") === md5("true")) {
 
         }
         else {
-            window.location.href = "./admin_login";
+            window.location.href = "./login";
         }
         function getAllProfile() {
 
@@ -641,35 +646,39 @@
 
             }
             else {
-                document.getElementById("photoimg").src = "../../assets/images/user.svg";
+                document.getElementById("photoimg").src = "../../assets/images/upload.png";
 
             }
 
-            axios.get(url + `/getAllSchedule`)
-                .then((response2) => {
-                    response2.data.a.map((res, index) => {
-                        if (res.course_id != null) {
+            getAllUserData().then(function (response2) {
+                //let sample = res1.data.a.sort(function (a, b) { return b.problems_completed - a.problems_completed })
+                // console.log(sample,response2)
+                let serial = 0;
+                response2.map((res, index) => {
+                    var tr = document.createElement("tr");
 
-                            var tr = document.createElement("tr");
-                            var td1 = tr.appendChild(document.createElement('td'));
-                            var td2 = tr.appendChild(document.createElement('td'));
-                            var td6 = document.createElement("tr");
-                            var td5 = tr.appendChild(document.createElement('td'));
-                            dataarray = ["abc", res.course_id, res.schedule_details, res.schedule_end, res.schedule_id, res.schedule_start, res.schedule_type];
-                            console.log(dataarray);
-                            $(td5).append(`<button type="button" id="feedbackbtn${index}" class="btn btn-block btn-warning"  data-target="#MentorFormModal" data-toggle="modal" style="width:fit-content;" onclick="studentfeedback('${index}');">
-                            Submit Assignment
-                            </button>`)
-                            td1.innerHTML = index + 1;
-                            td2.innerHTML = res.schedule_details.split("~")[0];
+                    var td1 = tr.appendChild(document.createElement('td'));
+                    var td2 = tr.appendChild(document.createElement('td'));
+                    var td3 = tr.appendChild(document.createElement('td'));
+
+                    var td4 = tr.appendChild(document.createElement('td'));
+                    var td7 = tr.appendChild(document.createElement('td'));
+                    var td6 = document.createElement("tr");
+
+                    var td5 = tr.appendChild(document.createElement('td'));
+                    serial = serial + 1;
+                    td1.innerHTML = serial;
+                    td2.innerHTML = res.user_id;
+                    td3.innerHTML = res.classes_completed;
+                    td4.innerHTML = res.problems_completed;
+                    td5.innerHTML = res.progress_details;
+                    td7.innerHTML = res.quiz_completed;
 
 
 
-                            document.getElementById("table_data").appendChild(tr)
-
-                        }
-                    })
+                    document.getElementById("table_data").appendChild(tr)
                 })
+            })
 
                 .catch(function (error) {
                     document.getElementById('processing-div').style.display = "none";
@@ -679,19 +688,19 @@
                 });
         }
 
-        // function getAllUserData() {
-        //   return axios.get( url+`/getAllUsers`)
-        //     .then(function (response) {
-        //       console.log(response);
-        //       return response.data.a;
-        //     })
-        //     .catch(function(error) {
-        //                   document.getElementById('processing-div').style.display="none";
-        //                   document.getElementById('alert-message-div').style.display="block";
-        //                   document.getElementById('message-div').innerHTML="Something went wrong, Please try again!";
-        //                   console.log(error);
-        //               });
-        // }
+        function getAllUserData() {
+            return axios.get(url + `/getAllProgress`)
+                .then(function (response) {
+                    console.log(response);
+                    return response.data.a;
+                })
+                .catch(function (error) {
+                    document.getElementById('processing-div').style.display = "none";
+                    document.getElementById('alert-message-div').style.display = "block";
+                    document.getElementById('message-div').innerHTML = "Something went wrong, Please try again!";
+                    console.log(error);
+                });
+        }
 
         function logout() {
             sessionStorage.clear();

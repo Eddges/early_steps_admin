@@ -98,5 +98,9 @@ router.get('/feedbacks', function(req, res, next) {
   res.render('feedbacks', { title: 'Express' });
 });
 
+router.get('/view_progress', function(req, res, next) {
+  res.render('view_progress', { title: 'Express' });
+});
+
 
 module.exports = router;

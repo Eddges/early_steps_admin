@@ -48,6 +48,7 @@ app.use('/bootcamp', indexRouter);
 app.use('/classes', indexRouter);
 app.use('/assignments', indexRouter);
 app.use('/feedbacks', indexRouter);
+app.use('/view_progress', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
