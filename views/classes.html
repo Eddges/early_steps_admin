@@ -489,7 +489,7 @@
         var schedule_id_update = "";
         var assignment_update = "";
 
-                var getData;
+                var getData=[];
 
         function setSchedule_id(schedule_id, assignment) {
             schedule_id_update = schedule_id;
@@ -520,12 +520,16 @@
             axios.get(url + `/getAllSchedule`)
                 .then((res) => {
                     //   console.log(res1)
-                    getData=res.data.a;
-                    console.log(getData)
                     res.data.a.map((res2, i) => {
                         if (res2.course_id === course_id) {
-                            // console.log(res2)
+                            // console.log(res2.schedule_id,res2.schedule_details)
+                            if(res2.schedule_id===1)
+                            {
+                                console.log(res2)
+                            }
 
+                            getData.push(res2);
+                            console.log(getData)
                             let zoomurl = res2.schedule_details.split("~")[2];
                             let start = new Date(res2.schedule_start);
                             let end = new Date(res2.schedule_end);
@@ -547,7 +551,7 @@
                                     class_var = "badge-danger";
 
                                 }
-
+                                // console.log(res2.schedule_id, res2.assignment)
                                 if (true) {
                                     $("#classes").append(`<li class="list-group-item justify-content-between">
                        <p>
