@@ -627,7 +627,7 @@ linkarray = linkarray.concat(document.getElementById(`assgnlink${val}`).value);
             let course_id = dataarray[1];
             let schedule_details = dataarray[2];
             let schedule_end = dataarray[3];
-            let schedule_id = dataarray[4];
+            let schedule_id = Number(dataarray[4]);
             let schedule_start = dataarray[5];
             let schedule_type = dataarray[6];
             console.log(dataarray[2], schedule_id)
