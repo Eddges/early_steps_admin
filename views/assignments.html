@@ -473,7 +473,7 @@
 
                         <div class="col-md-12 float-right">
                             <button class="btn btn-primary btn-outline" data-dismiss="modal" type="button"
-                                onclick="mentorFeedback()">Send Feedback</button>
+                                onclick="assgnFeedback()">Send Feedback</button>
                         </div>
                     </div>
                 </div>
@@ -575,29 +575,59 @@
             }
         }
 
-        function studentfeedback(index) {
-            btnindex = index;
-        }
-        let addr = 0;
-        function add_input() {
-            addr = addr + 1;
-            console.log("enter", addr);
-            $("#addfield").append(`<label for="assgnlink${addr}">Assignment Link</label>
-                          <input class="form-control" placeholder = "enter link" id="assgnlink${addr}" onchange = "linksubmit('${addr}')"> <br/>`)
-        }
+        function studentfeedback(index,data1,data2,data3,data4,data5,data6){
+ // console.log(val)
+  btnindex = index;
+  dataarray= ["abc",data1,data2,data3,data4,data5,data6];
+  //console.log(dataarray) 
+  //dataarray[4] = val;
+  console.log(dataarray) 
+}
+let addr = 0;
+function add_input(){
+  addr = addr + 1;
+  // console.log("enter",addr);
+  $("#addfield").append(`<span id="hap${addr}"><label for="assgnlink${addr}">Assignment Link</label>
+  <button type="button" class="close" onclick="inputhide('${addr}');" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                          <input class="form-control" placeholder = "enter link" id="assgnlink${addr}" onchange = "linksubmit('${addr}')"> <br/></span>
+                          `)
+}
 
-        function linksubmit(val) {
-            linkarray = linkarray.concat(document.getElementById(`assgnlink${val}`).value);
-            console.log(linkarray, dataarray);
+let safe = [];
 
-        }
-        function mentorFeedback() {
-            console.log("enter")
-            let assignment_value = linkarray.join("~");
-            let course_id = "1";
+function inputhide(address){
+    
+ // console.log("enter")
+  addr = addr -1;
+  // $("#addfield").prev().remove();
+  // console.log("enter1")
+  $(`#hap${address}`).remove(); 
+  linkarray[address] = "";
+  
+}
+function linksubmit(val){
+  //var {`x`+val} = document.getElementById(`assgnlink${val}`).value;
+linkarray = linkarray.concat(document.getElementById(`assgnlink${val}`).value);
+//console.log(linkarray,dataarray);
+
+}
+    function assgnFeedback(){
+      console.log(dataarray)
+      linkarray.map(res=>{
+    if(res!= "")
+    {
+      safe.push(res);
+    }
+  })
+
+            console.log(safe)
+            let assignment_value = safe.join("~");
+            let course_id = dataarray[1];
             let schedule_details = dataarray[2];
             let schedule_end = dataarray[3];
-            let schedule_id = 1;
+            let schedule_id = dataarray[4];
             let schedule_start = dataarray[5];
             let schedule_type = dataarray[6];
             console.log(dataarray[2], schedule_id)
@@ -619,6 +649,9 @@
                     document.getElementById(`feedbackbtn` + `${btnindex}`).classList.add("btn-success");
                     document.getElementById(`feedbackbtn` + `${btnindex}`).disabled = true;
                     document.getElementById("mentorform").reset();
+                    safe = [];
+                    linkarray=[];
+                
 
                     console.log(response);
                 })
@@ -652,16 +685,17 @@
                 .then((response2) => {
                     response2.data.a.map((res, index) => {
                         if (res.course_id != null) {
-
+                            console.log(res.schedule_details);
                             var tr = document.createElement("tr");
                             var td1 = tr.appendChild(document.createElement('td'));
                             var td2 = tr.appendChild(document.createElement('td'));
                             var td3 = tr.appendChild(document.createElement('td'));
                             var td6 = document.createElement("tr");
                             var td5 = tr.appendChild(document.createElement('td'));
-                            dataarray = ["abc", res.course_id, res.schedule_details, res.schedule_end, res.schedule_id, res.schedule_start, res.schedule_type];
-                            console.log(dataarray);
-                            $(td5).append(`<button type="button" id="feedbackbtn${index}" class="btn btn-block btn-warning"  data-target="#MentorFormModal" data-toggle="modal" style="width:fit-content;" onclick="studentfeedback('${index}');">
+                            // dataarray = ["abc", response2.data.a[index].course_id, response2.data.a[index].schedule_details, response2.data.a[index].schedule_end, response2.data.a[index].schedule_id, response2.data.a[index].schedule_start, response2.data.a[index].schedule_type];
+                            // console.log(dataarray);
+                            $(td5).append(`<button type="button" id="feedbackbtn${index}" class="btn btn-block btn-warning"  data-target="#MentorFormModal"
+                             data-toggle="modal" style="width:fit-content;" onclick="studentfeedback('${index}','${response2.data.a[index].course_id}','${response2.data.a[index].schedule_details}','${response2.data.a[index].schedule_end}','${response2.data.a[index].schedule_id}','${response2.data.a[index].schedule_start}','${response2.data.a[index].schedule_type}');">
                             Submit Assignment
                             </button>`)
                             td1.innerHTML = index + 1;
