@@ -90,6 +90,10 @@ router.get('/classes', function(req, res, next) {
   res.render('classes', { title: 'Express' });
 });
 
+router.get('/create', function(req, res, next) {
+  res.render('create', { title: 'Express' });
+});
+
 router.get('/assignments', function(req, res, next) {
   res.render('assignments', { title: 'Express' });
 });
