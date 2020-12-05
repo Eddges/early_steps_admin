@@ -325,75 +325,119 @@
 
             <div class="row" data-plugin="matchHeight" data-by-row="true">
                 <div class="col-xl-12">
-                    <!-- Panel Filtering rows -->
-                    <div class="panel">
-                        <header class="panel-heading">
-                            <h3 class="panel-title">Assignment</h3>
-                        </header>
-                        <div class="panel-body">
-                            <!-- Site Navbar Seach -->
-                            <div id="site-navbar-search">
-                                <form role="search" autocomplete="off">
-                                    <div class="form-group">
-                                        <div class="input-search">
-                                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
-                                            <input type="text" class="form-control" name="site-search" id="searchbar"
-                                                onkeyup="searchAll()" placeholder="Search...">
-                                            <button type="button" class="input-search-close icon wb-close"
-                                                data-target="#site-navbar-search" data-toggle="collapse"
-                                                aria-label="Close"></button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- End Site Navbar Seach -->
-                            <table
-                                class="table table-bordered table-hover toggle-circle footable footable-9 footable-filtering footable-filtering-right footable-paging footable-paging-center breakpoint-lg"
-                                id="exampleFootableFiltering" data-paging="true" data-filtering="true"
-                                data-sorting="true">
-                                <thead>
-                                    <div class="form-group"><label class="sr-only">Course Id</label>
-                                        <!-- <select onclick="changeData()" id="feedback_type" class="form-control">
-                    <option value="1">Virgin Algorithm - 4th April 2020</option>
-                    <option value="2">Virgin Algorithm - 11th April 2020</option>
-                    <option value="3">Full Stack - 11th April 2020</option>
-                    <option value="4">Machine Learning - 11th April 2020</option>
-                    <option value="5">Virgin Algorithm - 19th April 2020</option>
-                    <option value="6">Machine Learning - 19th April 2020</option>
-                    <option value="7">Full Stack - 19th April 2020</option>
-                    <option value="8">Data Analytics - 19th April 2020</option>
-                    <option value="9">Virgin Algorithm - 26th April 2020</option>
-                    <option value="10">Machine Learning - 26th April 2020</option>
-                    <option value="11">Full Stack - 26th April 2020</option>
-                    <option value="12">Data Analytics - 26th April 2020</option>
-                    </select> -->
-
-                                        <tr class="footable-header">
-                                            <th data-name="id" data-type="number" data-breakpoints="xs"
-                                                class="footable-sortable footable-first-visible"
-                                                style="display: table-cell;">S.No</th>
-                                            <th data-name="firstName" class="footable-sortable"
-                                                style="display: table-cell;">Class Name<span
-                                                    class="fooicon fooicon-sort"></span></th>
-                                            <!-- <th data-name="lastName" class="footable-sortable" style="display: table-cell;">Email</th> -->
-                                            <!-- <th data-name="jobTitle" data-breakpoints="xs sm" class="footable-sortable" style="display: table-cell;">
-            Course</th> -->
-                                            <th data-name="firstName" class="footable-sortable"
-                                                style="display: table-cell;">Start Date<span
-                                                    class="fooicon fooicon-sort"></span></th>
-                                            <th data-name="status" class="footable-sortable footable-last-visible"
-                                                style="display: table-cell;">
-                                                Submit Assignment</th>
-                                        </tr>
-                                </thead>
-                                <tbody id="table_data">
-                                    <tr>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    
+                    <h1 class="display-4">Create assignment</h1>
+                    <hr class="my-4" />
+                
+                    <p>Assignment Name</p>
+                    <input type="text" class="form-control col-md-8" id='inputName' >
+                      
+                    <br />
+                      
+                    <p>Assignment Description</p>
+                    <textarea class="form-control col-md-8" aria-label="Assignment Description" id="inputDescription"></textarea>
+                
+                    <hr class="my-4" />
+                
+                    <!-- Add Objective assignment START grr -->
+                        
+                
+                    <h2 class="lead mb-3">Objective assignments</h2>
+                    <br />
+                
+                    <div id='objectiveQuestionsDisplay'></div>
+                
+                    <div class="input-group mt-3" id="objectiveQuestionAdd">
+                        <input type="text" id="objectiveQuestionInput" class="form-control col-md-7" placeholder="Type Question" aria-label="Add Question" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="button-addon2" onclick="addObjectiveQuestion()">Add</button>
                         </div>
                     </div>
-                    <!-- End Panel Filtering -->
+                
+                    <div id="objectiveCreateOptions" class="jumbotron col-md-8">
+                        <div id="newQuestion"></div>
+                        <div id="newOptions"></div>
+                        
+                        <div id="optionInputDiv" style="display: none;">
+                            <div class="input-group mt-3" id="optionAdd">
+                                <input type="text" id="objectiveOptionInput" class="form-control col-md-7" placeholder="Enter Option" aria-label="Add Question" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" type="button" id="button-addon2" onclick="markCorrect()">Correct</button>
+                                </div>
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning" type="button" id="button-addon2" onclick="markWrong()">Wrong</button>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div id="buttonDiv"></div>
+                    </div>
+                
+                
+                    <!-- Add Objective assignment END -->
+                
+                
+                    <!-- Add written assignment START -->
+                          
+                    <hr class="my-4" />
+                    <h2 class="lead mb-3">Written assignments</h2>
+                    <br />
+                
+                    <div id="writtenDisplayDiv"></div>
+                
+                    <div class="input-group mt-3">
+                        <input type="text" id="writtenInput" class="form-control col-md-7" placeholder="Question" aria-label="Add Question" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="button-addon2" onclick="addWritten()">Add</button>
+                        </div>
+                    </div>
+                
+                
+                    <!-- Add written assignment END -->
+                
+                
+                
+                    <!-- Add video assignment START -->
+                
+                    <hr class="my-4" />
+                    <h2 class="lead mb-3">Video Assignment</h2>
+                    <br />
+                
+                    <div id="videoDisplayDiv"></div>
+                
+                    <div class="input-group mt-3" id="videoAssignment">
+                        <input type="text" id="videoInput" class="form-control col-md-7" placeholder="Question" aria-label="Add Question" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="button-addon2" onclick="addVideo()">Add</button>
+                        </div>
+                    </div>
+                
+                    <!-- Add video assignment END -->
+                
+                    <!-- Submission score -->
+                
+                
+                    <hr class="my-4" />
+                    <h4 >Add submission score</h4>
+                    <br />
+                
+                    <div id="videoDisplayDiv"></div>
+                
+                    <div class="input-group mt-3" id="videoAssignment">
+                        <input type="number" id="submissionInput" class="form-control col-md-7" placeholder="Score" aria-label="Add Question" aria-describedby="button-addon2">
+                        <!-- <div class="input-group-append">
+                            <button class="btn btn-info" type="button" id="button-addon2" onclick="addSubmissionScore()">Add</button>
+                        </div> -->
+                    </div>
+                
+                    <br />
+                    <hr />
+                    <br />
+                    <button class="btn btn-warning" id='createButton'>Create Assignment</button>
+
+
+
+
                 </div>
 
 
@@ -403,6 +447,10 @@
         </div>
     </div>
     <!-- End Page -->
+
+
+
+
     <div class="modal fade" id="exampleFormModal" aria-labelledby="exampleFormModalLabel" role="dialog" tabindex="-1"
         aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-simple modal-center" style="z-index:20000;">
@@ -540,7 +588,7 @@
     <script src="../../assets/examples/js/tables/footable.js"></script>
     <script>
 
-        var url = '<%= process.env.URL %>';
+        var url = 'https://api.codeasylums.com';
         let btnindex = "";
         let dataarray = [];
         let linkarray = [];
@@ -556,112 +604,56 @@
             document.getElementById('processing-div').style.display = "none";
         }
 
-        function searchAll() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchbar");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("table_data");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
 
         function studentfeedback(index,data1,data2,data3,data4,data5,data6){
- // console.log(val)
-  btnindex = index;
-  dataarray= ["abc",data1,data2,data3,data4,data5,data6];
-  //console.log(dataarray) 
-  //dataarray[4] = val;
-  console.log(dataarray) 
-}
-let addr = 0;
-function add_input(){
-  addr = addr + 1;
-  // console.log("enter",addr);
-  $("#addfield").append(`<span id="hap${addr}"><label for="assgnlink${addr}">Assignment Link</label>
-  <button type="button" class="close" onclick="inputhide('${addr}');" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                          </button>
-                          <input class="form-control" placeholder = "enter link" id="assgnlink${addr}" onchange = "linksubmit('${addr}')"> <br/></span>
-                          `)
-}
+            // console.log(val)
+            btnindex = index;
+            dataarray= ["abc",data1,data2,data3,data4,data5,data6];
+            //console.log(dataarray) 
+            //dataarray[4] = val;
+            console.log(dataarray) 
+        }
 
-let safe = [];
+        let addr = 0;
+        function add_input(){
+        addr = addr + 1;
+        // console.log("enter",addr);
+        $("#addfield").append(`<span id="hap${addr}"><label for="assgnlink${addr}">Assignment Link</label>
+            <button type="button" class="close" onclick="inputhide('${addr}');" aria-label="Close">
+            <span aria-hidden="true">×</span>
+            </button>
+            <input class="form-control" placeholder = "enter link" id="assgnlink${addr}" onchange = "linksubmit('${addr}')"> <br/></span>
+            `
+            )
+        }
 
-function inputhide(address){
+    let safe = [];
+
+    function inputhide(address){
+        
+    // console.log("enter")
+    addr = addr -1;
+    // $("#addfield").prev().remove();
+    // console.log("enter1")
+    $(`#hap${address}`).remove(); 
+    linkarray[address] = "";
     
- // console.log("enter")
-  addr = addr -1;
-  // $("#addfield").prev().remove();
-  // console.log("enter1")
-  $(`#hap${address}`).remove(); 
-  linkarray[address] = "";
-  
-}
-function linksubmit(val){
-  //var {`x`+val} = document.getElementById(`assgnlink${val}`).value;
-linkarray = linkarray.concat(document.getElementById(`assgnlink${val}`).value);
-//console.log(linkarray,dataarray);
-
-}
-    function assgnFeedback(){
-      console.log(dataarray)
-      linkarray.map(res=>{
-    if(res!= "")
-    {
-      safe.push(res);
     }
-  })
+    function linksubmit(val){
+    //var {`x`+val} = document.getElementById(`assgnlink${val}`).value;
+    linkarray = linkarray.concat(document.getElementById(`assgnlink${val}`).value);
+    //console.log(linkarray,dataarray);
 
-            console.log(safe)
-            let assignment_value = safe.join("~");
-            let course_id = dataarray[1];
-            let schedule_details = dataarray[2];
-            let schedule_end = dataarray[3];
-            let schedule_id = Number(dataarray[4]);
-            let schedule_start = dataarray[5];
-            let schedule_type = dataarray[6];
-            console.log(dataarray[2], schedule_id)
-            axios.put(url + `/updateSchedule/` + `${schedule_id}`, {
-                assignment: assignment_value,
-                course_id: course_id,
-                schedule_details: schedule_details,
-                schedule_end: schedule_end,
-                schedule_id:schedule_id,
-                schedule_start: schedule_start,
-                schedule_type: schedule_type
-            })
-                .then(function (response) {
-                    window.scrollTo(0, 0);
-                    document.getElementById('processing-div').style.display = "none";
-                    document.getElementById('info-message-div').style.display = "block";
-                    document.getElementById('message-div-info').innerHTML = "Assignment submitted successfully!";
-                    document.getElementById(`feedbackbtn` + `${btnindex}`).innerText = "Submitted";
-                    document.getElementById(`feedbackbtn` + `${btnindex}`).classList.remove("btn-warning");
-                    document.getElementById(`feedbackbtn` + `${btnindex}`).classList.add("btn-success");
-                    document.getElementById(`feedbackbtn` + `${btnindex}`).disabled = true;
-                    document.getElementById("mentorform").reset();
-                    safe = [];
-                    linkarray=[];
-                
+    }
+    function assgnFeedback(){
+        console.log(dataarray)
+        linkarray.map(res=>{
+            if(res!= "")
+            {
+            safe.push(res);
+            }
+        })
 
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    document.getElementById('processing-div').style.display = "none";
-                    document.getElementById('alert-message-div').style.display = "block";
-                    document.getElementById('message-div').innerHTML = "Something went wrong, Please try again!";
-                    console.log(error);
-                });
 
         }
 
@@ -682,55 +674,7 @@ linkarray = linkarray.concat(document.getElementById(`assgnlink${val}`).value);
 
             }
 
-            axios.get(url + `/getAllSchedule`)
-                .then((response2) => {
-                    response2.data.a.map((res, index) => {
-                        if (res.course_id != null) {
-                            console.log(res.schedule_details);
-                            var tr = document.createElement("tr");
-                            var td1 = tr.appendChild(document.createElement('td'));
-                            var td2 = tr.appendChild(document.createElement('td'));
-                            var td3 = tr.appendChild(document.createElement('td'));
-                            var td6 = document.createElement("tr");
-                            var td5 = tr.appendChild(document.createElement('td'));
-                            // dataarray = ["abc", response2.data.a[index].course_id, response2.data.a[index].schedule_details, response2.data.a[index].schedule_end, response2.data.a[index].schedule_id, response2.data.a[index].schedule_start, response2.data.a[index].schedule_type];
-                            // console.log(dataarray);
-                            $(td5).append(`<button type="button" id="feedbackbtn${index}" class="btn btn-block btn-warning"  data-target="#MentorFormModal"
-                             data-toggle="modal" style="width:fit-content;" onclick="studentfeedback('${index}','${response2.data.a[index].course_id}','${response2.data.a[index].schedule_details}','${response2.data.a[index].schedule_end}','${response2.data.a[index].schedule_id}','${response2.data.a[index].schedule_start}','${response2.data.a[index].schedule_type}');">
-                            Submit Assignment
-                            </button>`)
-                            td1.innerHTML = index + 1;
-                            td2.innerHTML = res.schedule_details.split("~")[0];
-                            td3.innerHTML = res.schedule_start;
-
-
-                            document.getElementById("table_data").appendChild(tr)
-
-                        }
-                    })
-                })
-
-                .catch(function (error) {
-                    document.getElementById('processing-div').style.display = "none";
-                    document.getElementById('alert-message-div').style.display = "block";
-                    document.getElementById('message-div').innerHTML = "Something went wrong, Please try again!";
-                    console.log(error);
-                });
         }
-
-        // function getAllUserData() {
-        //   return axios.get( url+`/getAllUsers`)
-        //     .then(function (response) {
-        //       console.log(response);
-        //       return response.data.a;
-        //     })
-        //     .catch(function(error) {
-        //                   document.getElementById('processing-div').style.display="none";
-        //                   document.getElementById('alert-message-div').style.display="block";
-        //                   document.getElementById('message-div').innerHTML="Something went wrong, Please try again!";
-        //                   console.log(error);
-        //               });
-        // }
 
         function logout() {
             sessionStorage.clear();
