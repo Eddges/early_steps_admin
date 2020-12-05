@@ -499,11 +499,11 @@
 
                             <p id="coursename1" class="font-size-20 blue-grey-700" style="text-transform:capitalize">${data.course_name}</p>
 
-                            <p class="mb-35" style="font-weight:bold">${data.course_details}</p>
+                            <p class="mb-35" >${data.course_details}</p>
 
                             <p class="mb-35" style="font-weight:bold">${data.course_date}</p>
 
-                            <button type="button" class="btn px-20 esButton" onclick="enterCourses(${data.course_id});" style="margin-top:10px;">Select Week</button>
+                            <button type="button" class="btn px-20 esButton fontLight" onclick="enterCourses(${data.course_id});" style="margin-top:10px;">Select Week</button>
 
                             <span style="display:flex;justify-content:flex-end"><i title="edit" onclick="setCourse_id(${data.course_id});" data-target="#exampleFormModal" data-toggle="modal" style="cursor:pointer" class="icon wb-edit" aria-hidden="true"></i></span>
 

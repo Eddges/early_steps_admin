@@ -98,6 +98,10 @@ router.get('/assignments', function(req, res, next) {
   res.render('assignments', { title: 'Express' });
 });
 
+router.get('/assignments/:assignmentId', function(req, res, next) {
+  res.render('assignment_view', { title: 'Express' });
+});
+
 router.get('/feedbacks', function(req, res, next) {
   res.render('feedbacks', { title: 'Express' });
 });

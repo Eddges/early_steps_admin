@@ -330,7 +330,7 @@
             <h2 class="display-5 ml-2">Add and view assignments</h1>
             <p class="lead ml-2">Add assignments to the given module or browse assigned tasks from the list below</p>
             <hr class="my-4">
-            <button id='createButton' class="btn btn-primary btn-lg ml-2 mb-2 esButton" disabled onclick="enterportal()" role="button">Create new assignment</button>
+            <button id='createButton' class="btn btn-lg ml-2 mb-2 esButton" disabled onclick="enterportal()" role="button">Create new assignment</button>
         </div>
 
         <!-- Grr -->
@@ -423,7 +423,7 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="site-footer-legal">© CodeAsylums</div>
+    <div class="site-footer-legal">© Early Steps</div>
 </footer>
   <!-- Core  -->
   <script src="../../global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
@@ -593,9 +593,9 @@
                     <div class="card-body">
                     <h5 class="card-title">${iterator.assignment_name}</h5>
                     <p class="card-text">${iterator.assignment_desc}</p>
-                    <small>Submission Score: <strong>${iterator.assignment_submission_score}</strong></small>
+                    <small>Assigned Coins: <strong>${iterator.assignment_submission_score}</strong></small>
                     <hr />
-                    <a href="${document.URL.split('/')[document.URL.split('/').length -1]}/${iterator.assignment_id}" class="btn btn-primary">View</a>
+                    <a href="assignments/${iterator.assignment_id}" class="btn esButton fontLight">View</a>
                     </div>
                 </div>
             `
