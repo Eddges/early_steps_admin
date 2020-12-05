@@ -16,6 +16,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../../global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../global/css/bootstrap-extend.min.css">
+    <link rel="stylesheet" href="../../global/css/styles.css">
     <link rel="stylesheet" href="../assets/css/site.min.css">
 
     <!-- Plugins -->
@@ -75,8 +76,8 @@
             </button>
             <div class="navbar-brand navbar-brand-center site-gridmenu-toggle">
                 <a href="./bootcamps" style="color:black"><img class="navbar-brand-logo" />
-                <img class="navbar-brand-logo" src="../../assets/images/logo-ca.png" alt="...">
-                <span class="navbar-brand-text hidden-xs-down"> Early Steps</span></a>
+                <img class="navbar-brand-logo" src="../../assets/images/EarlyStepsLogo.webp" alt="...">
+                </a>
             </div>
             <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
                 data-toggle="collapse">
@@ -264,8 +265,8 @@
                             <!-- <div class="col-xxl-4 col-xl-12 col-lg-12" style="height: 700px;"> -->
                             <!-- Panel Tickets -->
                             <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title" style="background:#3e8ef7!important; color:white;">
+                                <div class="panel-heading ">
+                                    <h3 class="panel-title coralBG white">
                                         Classes Schedule</h3>
                                     <br>
                                     <div class="panel-actions panel-actions-keep">
@@ -293,9 +294,9 @@
                             <!-- End Panel Tickets -->
                             <!-- </div> -->
                             <!-- Wizard Content -->
-                            <a">
+                            <a>
                                 <input type="button" value="ADD CLASS" data-target="#newSchedule" data-toggle="modal"
-                                    class="btn btn-sm btn-block btn-primary  "
+                                    class="btn btn-sm btn-block esButton"
                                     style="cursor:pointer;margin-right:5px;width:fit-content;" />
 
                                 </a>
@@ -484,7 +485,7 @@
     <script src="../assets/examples/js/dashboard/v1.js"></script>
 
     <script>
-        var url = 'https://api.codeasylums.com';
+        var url = 'https://early-steps.herokuapp.com';
 
         var schedule_id_update = "";
         var assignment_update = "";
