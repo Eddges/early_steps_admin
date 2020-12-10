@@ -29,9 +29,9 @@
     <link rel="stylesheet" href="../../global/vendor/intro-js/introjs.css">
     <link rel="stylesheet" href="../../global/vendor/slidepanel/slidePanel.css">
     <link rel="stylesheet" href="../../global/vendor/flag-icon-css/flag-icon.css">
-    <link rel="stylesheet" href="../../global/vendor/chartist/chartist.css">
+    <!-- <link rel="stylesheet" href="../../global/vendor/chartist/chartist.css"> -->
     <link rel="stylesheet" href="../../global/vendor/jvectormap/jquery-jvectormap.css">
-    <link rel="stylesheet" href="../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+    <!-- <link rel="stylesheet" href="../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css"> -->
     <link rel="stylesheet" href="../assets/examples/css/dashboard/v1.css">
     <link rel="stylesheet" href="../../assets/examples/css/dashboard/team.css">
     <link rel="stylesheet" href="../../assets/examples/css/uikit/modals.css">
@@ -412,8 +412,8 @@
     <script src="../../global/vendor/screenfull/screenfull.js"></script>
     <script src="../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
     <script src="../../global/vendor/skycons/skycons.js"></script>
-    <script src="../../global/vendor/chartist/chartist.min.js"></script>
-    <script src="../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.js"></script>
+    <!-- <script src="../../global/vendor/chartist/chartist.min.js"></script> -->
+    <!-- <script src="../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.js"></script> -->
     <script src="../../global/vendor/aspieprogress/jquery-asPieProgress.min.js"></script>
     <script src="../../global/vendor/jvectormap/jquery-jvectormap.min.js"></script>
     <script src="../../global/vendor/jvectormap/maps/jquery-jvectormap-au-mill-en.js"></script>
@@ -496,13 +496,13 @@
                     <div class="card card-shadow">
                         <div class="card-block text-center bg-white p-40">
 
-                            <p id="coursename1" class="font-size-20 blue-grey-700" style="text-transform:capitalize">${data.bootcamp_name}</p>
+                            <p id="coursename1" class="font-size-20 blue-grey-700" style="text-transform:capitalize">${data.bootcamp_name} (Id : ${data.bootcamp_id})</p>
 
                             <p class="mb-35" >${data.contact_in}</p>
 
                             <p class="mb-35" >${data.details_bootcamp}</p>
 
-                            <button type="button" class="btn px-20 esButton fontLight" onclick="enterCourses(${data.bootcamp_id});" style="margin-top:10px;">Select Module</button>
+                            <button type="button" class="btn px-20 esButton fontLight" onclick="enterCourses(${data.bootcamp_id});" style="margin-top:10px;">Select Course</button>
 
                             <span style="display:flex;justify-content:flex-end"><i title="edit" onclick="setBootcamp_id(${data.bootcamp_id});" data-target="#exampleFormModal" data-toggle="modal" style="cursor:pointer" class="icon wb-edit" aria-hidden="true"></i></span>
 

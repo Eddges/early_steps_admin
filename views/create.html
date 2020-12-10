@@ -174,7 +174,7 @@
             <li class="site-menu-item has-sub">
                 <a href="/classes">
                     <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
-                    <span class="site-menu-title">Today's Classes</span>
+                    <span class="site-menu-title">Add Class</span>
                     <span class="site-menu-arrow"></span>
                 </a>
             </li>
@@ -260,8 +260,8 @@
   </div>
 
   <!-- Page -->
-  <div class="page background">
-    <div class="page-content container-fluid">
+  <div class="page">
+    <div class="page-content">
 
       <!-- alert message -->
       <div class="alert dark alert-info alert-dismissible animation-slide-top " id="processing-div" style="display:none"
@@ -297,7 +297,7 @@
 
 
 
-      <h1 class="display-4">Create assignment</h1>
+      <h1 class="display-4" id='levelHeading'>Create</h1>
       <hr class="my-4" />
   
       <p>Assignment Name</p>
@@ -307,6 +307,13 @@
         
       <p>Assignment Description</p>
       <textarea class="form-control col-md-8" aria-label="Assignment Description" id="inputDescription"></textarea>
+  
+      <hr class="my-4" />
+
+      <p>Video Embed</p>
+      <div id='divEmbedVideo'></div>
+      <input type="text" class="form-control col-md-8" id='inputEmbedVideo' >
+      <button type='button' class='btn btn-primary' id='buttonEmbedVideo' onclick='embedVideo()'>Embed</button>
   
       <hr class="my-4" />
   
@@ -488,7 +495,7 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="site-footer-legal">© CodeAsylums</div>
+    <div class="site-footer-legal">© Early Steps</div>
 </footer>
   <!-- Core  -->
   <script src="../../global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
@@ -692,6 +699,7 @@
       })
             
       let filesArray = []
+      let embedLink = ''
             
       // Written START
 
@@ -981,6 +989,7 @@
 
       let levelCount = localStorage.getItem('next_level')
       console.log('Level Count : ', levelCount)
+      document.querySelector('#levelHeading').innerHTML = 'Level ' + levelCount
 
       const divAssignmentList = document.querySelector('#assignment-list')
       const moduleId = +sessionStorage.getItem('course_id')
@@ -1029,6 +1038,7 @@
       createButton.addEventListener('click', () => {
           assignment.assignment_type = 'XD',
           assignment.module_id = `${moduleId}`
+          assignment.embedLink = embedLink
           assignment.assignment_name = inputNameText
           assignment.assignment_desc = inputDescription.value
           assignment.assignment_submission_score = submissionScore
@@ -1051,7 +1061,15 @@
 
 
 
-
+      const embedVideo = () => {
+        embedLink = $('#inputEmbedVideo').val()
+        console.log('EmbedLink : ', embedLink)
+        console.log('Screen width : ', screen.width)
+        if(screen.width <= 576) {
+        let temp = embedLink.replace('560', '50%')
+        }
+        document.querySelector('#divEmbedVideo').innerHTML = embedLink
+      }
 
 
 
