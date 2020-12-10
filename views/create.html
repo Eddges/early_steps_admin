@@ -174,7 +174,7 @@
             <li class="site-menu-item has-sub">
                 <a href="/classes">
                     <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
-                    <span class="site-menu-title">Add Class</span>
+                    <span class="site-menu-title">Add Live Session</span>
                     <span class="site-menu-arrow"></span>
                 </a>
             </li>
@@ -1038,7 +1038,7 @@
       createButton.addEventListener('click', () => {
           assignment.assignment_type = 'XD',
           assignment.module_id = `${moduleId}`
-          assignment.embedLink = embedLink
+          assignment.assignment_embed_link = embedLink
           assignment.assignment_name = inputNameText
           assignment.assignment_desc = inputDescription.value
           assignment.assignment_submission_score = submissionScore

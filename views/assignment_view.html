@@ -148,7 +148,7 @@
             <li class="site-menu-item has-sub">
                 <a href="/classes">
                     <i class="site-menu-icon wb-calendar" aria-hidden="true"></i>
-                    <span class="site-menu-title">Add Class</span>
+                    <span class="site-menu-title">Add Live Session</span>
                     <span class="site-menu-arrow"></span>
                 </a>
             </li>
@@ -554,6 +554,7 @@
                     if(iterator){
                       writtenDisplay.innerHTML += `
                         <br/>
+                        ${iterator.assetURL && `<img src=${iterator.assetURL} style='width : 300px;' alt='Question image'/>` }
                         <h4 id='${iterator.questionId}'>Q ${index + 1}. ${iterator.question}</h4> 
                     `
                     }
@@ -561,9 +562,10 @@
                 })
                 console.log('Video parse ', JSON.parse(res.data.assignment_content_video))
                 if(Object.keys(JSON.parse(res.data.assignment_content_video)).length !== 0) {
-                  console.log('Video true')
+                  console.log('Video true, assetURL : ', res.data.assignment_content_video)
                   videoDisplay.innerHTML = `
                     <br/>
+                    ${JSON.parse(res.data.assignment_content_video).assetURL && `<img src=${JSON.parse(res.data.assignment_content_video).assetURL} style='width : 300px;' alt='Question image'/>` }
                     <h4 id='${JSON.parse(res.data.assignment_content_video).videoId}'>Q. ${JSON.parse(res.data.assignment_content_video).question}</h4> 
                 `
                 }
