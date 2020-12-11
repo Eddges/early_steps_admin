@@ -282,6 +282,8 @@
       <br />
       <p id="assignmentDescription"></p>
 
+      <div id='divEmbedVideo'></div>
+
       <div class="container" id="assignment-list"></div>
 
       <hr class='my-4'/>
@@ -549,6 +551,10 @@
                 assignmentName.innerHTML = res.data.assignment_name
                 assignmentDescription.innerHTML = res.data.assignment_desc
                 // aText = JSON.parse(res.data.assignment_content_text)
+
+                if(res.data.assignment_embed_link) {
+                  document.querySelector('#divEmbedVideo').innerHTML = res.data.assignment_embed_link
+                }
 
                 JSON.parse(res.data.assignment_content_text).map((iterator, index) => {
                     if(iterator){
