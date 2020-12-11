@@ -577,11 +577,21 @@
                 }
                 
                 JSON.parse(res.data.assignment_content_mcq).map((iterator, index) => {
+                  if(iterator.assetURL) {
                     objectiveDisplay.innerHTML += `
-                        
+                        <img src='${iterator.assetURL}' alt='${iterator.assetURL}' />
                         <h4 id='${iterator.questionId}'>Q ${index + 1}. ${iterator.question}</h4> 
                         <br/>
                     `
+                  }
+
+                  else{
+                    objectiveDisplay.innerHTML += `
+                        <h4 id='${iterator.questionId}'>Q ${index + 1}. ${iterator.question}</h4> 
+                        <br/>
+                    `
+                  }
+                    
                     iterator.options.map((itr, ind) => {
                         objectiveDisplay.innerHTML += `
                         <p id='${itr.questionId}'>${ind + 1}) ${itr.text}</p> 
