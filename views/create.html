@@ -552,7 +552,9 @@
   <!-- <script src="../../assets/examples/js/tables/footable.js"></script> -->
   <script>
 
-    var url = 'https://early-steps.herokuapp.com';
+    // var url = 'https://early-steps.herokuapp.com';
+    var url = 'http://earlysteps-env-2.eba-7ipamjqn.us-west-2.elasticbeanstalk.com'
+
     let btnindex = "";
     function hideme() {
       document.getElementById('alert-message-div').style.display = "none";
@@ -706,7 +708,7 @@
 
 
 
-      axios.get('https://early-steps.herokuapp.com/getAllAssignment')
+      axios.get(url + '/getAllAssignment')
       .then(res => {
           console.log('Response data : ', res.data)
       })
@@ -1076,7 +1078,7 @@
 
           
 
-          axios.post('https://early-steps.herokuapp.com/createAssignment', assignment)
+          axios.post(url + '/createAssignment', assignment)
           .then(res => {
               console.log(res.data)
               // window.location.href = 'http://earlystepsmentor.herokuapp.com/addassignment'

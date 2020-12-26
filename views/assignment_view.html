@@ -435,7 +435,8 @@
   <!-- <script src="../../assets/examples/js/tables/footable.js"></script> -->
   <script>
 
-    var url = 'https://early-steps.herokuapp.com';
+    // var url = 'https://early-steps.herokuapp.com';
+    var url = 'http://earlysteps-env-2.eba-7ipamjqn.us-west-2.elasticbeanstalk.com'
     let btnindex = "";
     function hideme() {
       document.getElementById('alert-message-div').style.display = "none";
@@ -545,7 +546,7 @@
 
             console.log('https://early-steps.herokuapp.com/getAssignment/' + assignmentId)
             
-            axios.get('https://early-steps.herokuapp.com/getAssignment/' + assignmentId)
+            axios.get(url + '/getAssignment/' + assignmentId)
             .then(res => {
                 console.log('Assignment data', res.data)
                 assignmentName.innerHTML = res.data.assignment_name

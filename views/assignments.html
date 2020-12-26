@@ -479,7 +479,8 @@
   <!-- <script src="../../assets/examples/js/tables/footable.js"></script> -->
   <script>
 
-    var url = 'https://early-steps.herokuapp.com';
+    // var url = 'https://early-steps.herokuapp.com';
+    var url = 'http://earlysteps-env-2.eba-7ipamjqn.us-west-2.elasticbeanstalk.com'
     let btnindex = "";
     function hideme() {
       document.getElementById('alert-message-div').style.display = "none";
@@ -582,7 +583,7 @@
         // const moduleId = +document.URL.split('/')[document.URL.split('/').length -1]
         const moduleId = sessionStorage.getItem('course_id')
 
-        axios.get('https://early-steps.herokuapp.com/getModuleAllAssignment/' + moduleId)
+        axios.get(url + '/getModuleAllAssignment/' + moduleId)
         .then(res => {
             console.log(res.data)
             res.data.a.map((iterator, index) => {
